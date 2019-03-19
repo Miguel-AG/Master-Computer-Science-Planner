@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 class ComputerScienceModules {
   
   constructor(public _name?: string,
-    public semester?: "WS" | "SS" | "",
+    public semester?: "WS" | "SS" | "WS&SS" | "",
     public cp?: number,
-    public isSelected?: boolean,
-    public mark?: number) {
+    public isSelected: boolean = false,
+    public mark: number = 0) {
   }
 }
 
@@ -34,11 +34,26 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.moduleCoreTopics = [
-      new ComputerScienceModules("Spezielle Kapitel der Praktischen Informatik", "", 9, false, 0),
-      new ComputerScienceModules("Spezielle Kapitel der Theoretischen Informatik", "", 9, false, 0),
-      new ComputerScienceModules("Spezielle Kapitel der Technischen Informatik", "", 9, false, 0),
-      new ComputerScienceModules("Digitale Transformation", "WS", 6, false, 0),
+      new ComputerScienceModules("Spezielle Kapitel der Praktischen Informatik", "", 9),
+      new ComputerScienceModules("Spezielle Kapitel der Theoretischen Informatik", "", 9),
+      new ComputerScienceModules("Spezielle Kapitel der Technischen Informatik", "", 9),
+      new ComputerScienceModules("Digitale Transformation", "WS", 6),
     ];
+
+    this.moduleDataAnalytics = [
+      new ComputerScienceModules("Einführung in Data Analytics", "WS", 9),
+      new ComputerScienceModules("Machine Learning 2", "SS", 6),
+      new ComputerScienceModules("Web Information Retrievel", "SS", 6),
+      new ComputerScienceModules("Weiterführung Stochastik", "", 9),
+      new ComputerScienceModules("Spezial Topics in Data Analytics", "", 9),
+      new ComputerScienceModules("Angewante Statistik", "SS", 9),
+      new ComputerScienceModules("Wahrscheinlichkeitstheorie", "WS", 9),
+      new ComputerScienceModules("Big Data Technologien", "WS", 6),
+      new ComputerScienceModules("Seminar Data Analytics", "SS", 3)
+    ];
+
+    
+
   }
 
   setMainFocus(num: number) {

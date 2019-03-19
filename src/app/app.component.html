@@ -1,10 +1,11 @@
 <div class="main">
   <div class="siteTop">{{title}}</div>
-  <div class="container coreModules">
+  <div class="container coreModules moduleTable">
       <div class="row">
-        <div class="col-12">
+        <div class="col-5">
           A. Bereich "Kernbereich"
         </div>
+        <div class="col-4">Schwerpunkt</div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -37,18 +38,40 @@
 
   </div>
 
-  <div class="container dataAnalytics">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
+  <div class="container dataAnalytics moduleTable">
+    <div class="row">
+      <div class="col-12">
+        B. Bereich "Data Analytics"
       </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        Modulname
+      </div>
+      <div class="col-2">
+        LP
+      </div>
+      <div class="col-2">
+        Box
+      </div>
+      <div class="col-2">
+        Note
+      </div>
+    </div>
+    <div class="row" *ngFor="let m of moduleDataAnalytics">
+          <div class="col-6">
+            {{m._name}}
+          </div>
+          <div class="col-2">
+            {{m.cp}}
+          </div>
+          <div class="col-2">
+            {{m.isSelected}}
+          </div>
+          <div class="col-2">
+            <input [(ngModel)]="m.mark">
+          </div>
+    </div>
   </div>
 
   <div class="container scientific">
