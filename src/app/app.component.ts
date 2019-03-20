@@ -52,7 +52,53 @@ export class AppComponent implements OnInit {
       new ComputerScienceModules("Seminar Data Analytics", "SS", 3)
     ];
 
-    
+    this.moduleScientificComputing = [
+      new ComputerScienceModules("Parallel Algorithms", "SS", 9),
+      new ComputerScienceModules("Discrete Methods for Numerical Computing", "", 9),
+      new ComputerScienceModules("Verifikationsnumerik", "WS&SS", 9),
+      new ComputerScienceModules("Special Topics in Scientific Computation", "", 9),
+      new ComputerScienceModules("Special Topics in Numerical Analysis and Algorithms", "", 9),
+      new ComputerScienceModules("Selected Topics in Numerical Analysis and Algorithms", "", 9),
+      new ComputerScienceModules("Numerical Analysis ans Simulation 1", "WS", 9),
+      new ComputerScienceModules("Numerical Analysis ans Simulation 2 (PDE)", "SS", 9),
+      new ComputerScienceModules("Numerical Methods 2", "", 6),
+      new ComputerScienceModules("Seminar Scientific Computing", "", 3),
+    ];
+
+    this.moduleComputerEngineering = [
+      new ComputerScienceModules("Digitalisierung und informationstechnologische Netzwerke", "SS", 6),
+      new ComputerScienceModules("IT-Security in Informations- und Kommunikationstechnik", "", 6),
+      new ComputerScienceModules("Embedded Security", "", 6),
+      new ComputerScienceModules("Multimodale Mensch-Maschine-Systeme", "", 6),
+      new ComputerScienceModules("Informationsverarbeitung", "", 6),
+      new ComputerScienceModules("System- und Softwareentwicklung", "WS", 6),
+      new ComputerScienceModules("Numerische Methoden des Computational Engineering", "", 6),
+      new ComputerScienceModules("Entwurf digitaler Syseme in VHDL", "", 6),
+      new ComputerScienceModules("Digital Media", "", 6),
+      new ComputerScienceModules("Informationstechnik für elektrische Energiesysteme", "", 6),
+      new ComputerScienceModules("Seminar Computer Engineering", "", 3),
+    ];
+
+    this.moduleInterdisiplinary = [
+      new ComputerScienceModules("Computational Finance 1", "WS", 9),
+      new ComputerScienceModules("Computational Finance 2", "SS", 9),
+      new ComputerScienceModules("Ausgewählte Kapitel der Wirtschaftsmathematik", "", 9),
+      new ComputerScienceModules("Angewandte Statistik", "SS", 9),
+      new ComputerScienceModules("Integrierte Schaltung in der Hochfrequenztechnik", "SS", 6),
+      new ComputerScienceModules("Methodischer Entwurf elektronischer Systeme", "", 6),
+      new ComputerScienceModules("Komponenten für Mobilfunksysteme", "SS", 6),
+      new ComputerScienceModules("Regenerative Energiequellen", "SS", 6),
+      new ComputerScienceModules("Optimierungsmethoden in der Reglungstechnik", "", 6),
+      new ComputerScienceModules("Einführung in MATLAB/Simulink für elektrische Nachrichtentechnik", "SS", 3),
+    ];
+
+    this.moduleAdditional = [
+      new ComputerScienceModules("Fremdsprachen", "WS&SS", 6),
+      new ComputerScienceModules("Grundzüge des Gründungsmanagements 1 & 2 + Seminar(SS)", "WS&SS", 12),
+      new ComputerScienceModules("Vermittlung und Unterricht", "", 6),
+    ];
+
+    this.moduleMasterThesis = new ComputerScienceModules("Masterarbeit mit Abschlusskolloquium", "WS&SS", 30);
 
   }
 
@@ -60,7 +106,15 @@ export class AppComponent implements OnInit {
     this._mainFocus = num;
   }
 
-  calculateWP(): number {
+  calculateWPModule(moduleList: ComputerScienceModules[]): number {
+    let value = 0;
+    for (const m of moduleList) {
+      value += m.isSelected ? m.mark : 0;
+    }
+    return value;
+  }
+
+  calculateWPAllModules(): number {
     let value = 0;
     for (const i of this.moduleCoreTopics) {
       value += i.isSelected ? i.cp : 0;
