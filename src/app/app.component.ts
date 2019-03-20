@@ -31,6 +31,9 @@ export class AppComponent implements OnInit {
   moduleAdditional: ComputerScienceModules[];
   moduleMasterThesis: ComputerScienceModules;
   _mainFocus: MainFocus;
+  get mainFocus(): MainFocus {
+    return this._mainFocus;
+  }
 
   ngOnInit() {
     this.moduleCoreTopics = [
@@ -102,14 +105,19 @@ export class AppComponent implements OnInit {
 
   }
 
-  setMainFocus(num: number) {
-    this._mainFocus = num;
+  setMainFocus(focus: MainFocus) {
+
+    this._mainFocus = this._mainFocus === focus ? null : focus;
+  }
+
+  isMainFocus(focus: MainFocus): boolean {
+    return this._mainFocus === focus;
   }
 
   calculateWPModule(moduleList: ComputerScienceModules[]): number {
     let value = 0;
     for (const m of moduleList) {
-      value += m.isSelected ? m.mark : 0;
+      value += m.isSelected ? m.cp : 0;
     }
     return value;
   }

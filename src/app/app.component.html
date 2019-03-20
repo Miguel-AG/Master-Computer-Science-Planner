@@ -5,17 +5,20 @@
         <div class="col-5">
           A. Bereich "Kernbereich"
         </div>
-        <div style="text-align: end" class="col-5">Note:</div>
-        <div class="col-2">{{ calculateWPModule(moduleCoreTopics) }}</div>
+        <div style="text-align: end" class="col-6">WP:</div>
+        <div class="col-1">{{ calculateWPModule(moduleCoreTopics) }}</div>
       </div>
       <div class="row">
         <div class="col-6">
           Modulname
         </div>
         <div class="col-2">
+          Semester
+        </div>
+        <div class="col-1">
           LP
         </div>
-        <div class="col-2">
+        <div class="col-1">
           Box
         </div>
         <div class="col-2">
@@ -24,126 +27,304 @@
       </div>
       <div class="row" *ngFor="let m of moduleCoreTopics">
           <div class="col-6">
-              {{m._name}}
-            </div>
-            <div class="col-2">
-              {{m.cp}}
-            </div>
-            <div class="col-2">
-              {{m.isSelected}}
-            </div>
-            <div class="col-2">
-              <input [(ngModel)]="m.mark">
-            </div>
+            {{m._name}}
+          </div>
+          <div class="col-2">
+            {{m.semester}}
+          </div>
+          <div class="col-1">
+            {{m.cp}}
+          </div>
+          <div class="col-1">
+            <mat-checkbox [(ngModel)]="m.isSelected"></mat-checkbox>
+          </div>
+          <div class="col-2">
+            <input class="inputForm" [(ngModel)]="m.mark">
+          </div>
       </div>
-
   </div>
 
   <div class="container dataAnalytics moduleTable">
-    <div class="row">
-      <div class="col-12">
-        B. Bereich "Data Analytics"
+      <div class="row tableHead">
+        <div class="col-5">
+          B. Bereich "Data Analytics"
+        </div>
+        <div class="col-4">
+            Schwerpunkt: <mat-checkbox [checked]="isMainFocus(0)" (change)="setMainFocus(0)"></mat-checkbox>
+        </div>
+        <div style="text-align: end" class="col-2">WP:</div>
+        <div class="col-1">{{ calculateWPModule(moduleDataAnalytics) }}</div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        Modulname
+      <div class="row">
+        <div class="col-6">
+          Modulname
+        </div>
+        <div class="col-2">
+          Semester
+        </div>
+        <div class="col-1">
+          LP
+        </div>
+        <div class="col-1">
+          Box
+        </div>
+        <div class="col-2">
+          Note
+        </div>
       </div>
-      <div class="col-2">
-        LP
-      </div>
-      <div class="col-2">
-        Box
-      </div>
-      <div class="col-2">
-        Note
-      </div>
-    </div>
-    <div class="row" *ngFor="let m of moduleDataAnalytics">
+      <div class="row" *ngFor="let m of moduleDataAnalytics">
           <div class="col-6">
             {{m._name}}
           </div>
           <div class="col-2">
+            {{m.semester}}
+          </div>
+          <div class="col-1">
             {{m.cp}}
           </div>
-          <div class="col-2">
-            {{m.isSelected}}
+          <div class="col-1">
+            <mat-checkbox [(ngModel)]="m.isSelected"></mat-checkbox>
           </div>
           <div class="col-2">
-            <input [(ngModel)]="m.mark">
+            <input class="inputForm" [(ngModel)]="m.mark">
           </div>
+      </div>
+  </div>
+
+  <div class="container scientificComputing moduleTable">
+      <div class="row tableHead">
+        <div class="col-5">
+          C. Bereich "Scientific Computing"
+        </div>
+        <div class="col-4">
+            Schwerpunkt: <mat-checkbox [checked]="isMainFocus(1)" (change)="setMainFocus(1)"></mat-checkbox>
+        </div>
+        <div style="text-align: end" class="col-2">WP:</div>
+        <div class="col-1">{{ calculateWPModule(moduleScientificComputing) }}</div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          Modulname
+        </div>
+        <div class="col-2">
+          Semester
+        </div>
+        <div class="col-1">
+          LP
+        </div>
+        <div class="col-1">
+          Box
+        </div>
+        <div class="col-2">
+          Note
+        </div>
+      </div>
+      <div class="row" *ngFor="let m of moduleScientificComputing">
+          <div class="col-6">
+            {{m._name}}
+          </div>
+          <div class="col-2">
+            {{m.semester}}
+          </div>
+          <div class="col-1">
+            {{m.cp}}
+          </div>
+          <div class="col-1">
+            <mat-checkbox [(ngModel)]="m.isSelected"></mat-checkbox>
+          </div>
+          <div class="col-2">
+            <input class="inputForm" [(ngModel)]="m.mark">
+          </div>
+      </div>
+  </div>
+
+  <div class="container computerEngineering moduleTable">
+      <div class="row tableHead">
+        <div class="col-5">
+          D. Bereich "Computer Engineering"
+        </div>
+        <div class="col-4">
+          Schwerpunkt: <mat-checkbox [checked]="isMainFocus(2)" (change)="setMainFocus(2)"></mat-checkbox>
+        </div>
+        <div style="text-align: end" class="col-2">WP:</div>
+        <div class="col-1">{{ calculateWPModule(moduleComputerEngineering) }}</div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          Modulname
+        </div>
+        <div class="col-2">
+          Semester
+        </div>
+        <div class="col-1">
+          LP
+        </div>
+        <div class="col-1">
+          Box
+        </div>
+        <div class="col-2">
+          Note
+        </div>
+      </div>
+      <div class="row" *ngFor="let m of moduleComputerEngineering">
+          <div class="col-6">
+            {{m._name}}
+          </div>
+          <div class="col-2">
+            {{m.semester}}
+          </div>
+          <div class="col-1">
+            {{m.cp}}
+          </div>
+          <div class="col-1">
+            <mat-checkbox [(ngModel)]="m.isSelected"></mat-checkbox>
+          </div>
+          <div class="col-2">
+            <input class="inputForm" [(ngModel)]="m.mark">
+          </div>
+      </div>
+  </div>
+
+  <div class="container interdisiplinary moduleTable">
+      <div class="row tableHead">
+        <div class="col-5">
+          E. Bereich "Fachübergreifende Qualifikationen"
+        </div>
+        <div style="text-align: end" class="col-6">WP:</div>
+        <div class="col-1">{{ calculateWPModule(moduleInterdisiplinary) }}</div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          Modulname
+        </div>
+        <div class="col-2">
+          Semester
+        </div>
+        <div class="col-1">
+          LP
+        </div>
+        <div class="col-1">
+          Box
+        </div>
+        <div class="col-2">
+          Note
+        </div>
+      </div>
+      <div class="row" *ngFor="let m of moduleInterdisiplinary">
+          <div class="col-6">
+            {{m._name}}
+          </div>
+          <div class="col-2">
+            {{m.semester}}
+          </div>
+          <div class="col-1">
+            {{m.cp}}
+          </div>
+          <div class="col-1">
+            <mat-checkbox [(ngModel)]="m.isSelected"></mat-checkbox>
+          </div>
+          <div class="col-2">
+            <input class="inputForm" [(ngModel)]="m.mark">
+          </div>
+      </div>
+  </div>
+
+  <div class="container additional moduleTable">
+      <div class="row tableHead">
+        <div class="col-5">
+          F. Bereich "Zusätzliche Qualifikationen"
+        </div>
+        <div style="text-align: end" class="col-6">WP:</div>
+        <div class="col-1">{{ calculateWPModule(moduleAdditional) }}</div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          Modulname
+        </div>
+        <div class="col-2">
+          Semester
+        </div>
+        <div class="col-1">
+          LP
+        </div>
+        <div class="col-1">
+          Box
+        </div>
+        <div class="col-2">
+          Note
+        </div>
+      </div>
+      <div class="row" *ngFor="let m of moduleAdditional">
+          <div class="col-6">
+            {{m._name}}
+          </div>
+          <div class="col-2">
+            {{m.semester}}
+          </div>
+          <div class="col-1">
+            {{m.cp}}
+          </div>
+          <div class="col-1">
+            <mat-checkbox [(ngModel)]="m.isSelected"></mat-checkbox>
+          </div>
+          <div class="col-2">
+            <input class="inputForm" [(ngModel)]="m.mark">
+          </div>
+      </div>
+  </div>
+
+  <div class="container additional moduleTable">
+      <div class="row tableHead">
+        <div class="col-5">
+          G. Bereich "Masterarbeit mit Abschlusskolloquium"
+        </div>
+        <div style="text-align: end" class="col-6">WP:</div>
+        <div class="col-1">{{calculateWPModule([moduleMasterThesis])}}</div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          Modulname
+        </div>
+        <div class="col-2">
+          Semester
+        </div>
+        <div class="col-1">
+          LP
+        </div>
+        <div class="col-1">
+          Box
+        </div>
+        <div class="col-2">
+          Note
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-6">
+            {{moduleMasterThesis._name}}
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-1">
+            {{moduleMasterThesis.cp}}
+          </div>
+          <div class="col-1">
+              <mat-checkbox [(ngModel)]="moduleMasterThesis.isSelected"></mat-checkbox>
+          </div>
+          <div class="col-2">
+            <input class="inputForm" [(ngModel)]="moduleMasterThesis.mark">
+          </div>
+      </div>
+  </div>
+
+  <div class="siteBottom">
+    <div class="focus">
+        Schwerpunkt: 
+        <p *ngIf="_mainFocus === 0">Data Analytics</p>
+        <p *ngIf="_mainFocus === 1">Scientific Computing</p>
+        <p *ngIf="_mainFocus === 2">Computer Engineering</p>
     </div>
   </div>
 
-  <div class="container scientific">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
-  </div>
-
-  <div class="container engineering">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
-  </div>
-
-  <div class="container interdisiplinary">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
-  </div>
-
-  <div class="container additional">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
-  </div>
-
-  <div class="container thesis">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
-  </div>
 </div>
 
 <router-outlet></router-outlet>
