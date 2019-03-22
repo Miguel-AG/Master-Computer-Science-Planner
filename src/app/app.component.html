@@ -2,11 +2,13 @@
   <div class="siteTop">{{title}}</div>
   <div class="container coreModules moduleTable">
       <div class="row tableHead">
-        <div class="col-5">
+        <div class="col-8">
           A. Bereich "Kernbereich"
         </div>
-        <div style="text-align: end" class="col-6">WP:</div>
-        <div class="col-1">{{ calculateWPModule(moduleCoreTopics) }}</div>
+        <div class="col-2">LP: {{ calculateWPModule(moduleCoreTopics) }}</div>
+        <div class="col-2">
+            Note: {{calculateMarkModule(moduleCoreTopics)}}
+        </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -19,7 +21,6 @@
           LP
         </div>
         <div class="col-1">
-          Box
         </div>
         <div class="col-2">
           Note
@@ -44,16 +45,24 @@
       </div>
   </div>
 
-  <div class="container dataAnalytics moduleTable">
-      <div class="row tableHead">
+  <div class="container dataAnalytics moduleTable" >
+      <div class="row" [ngClass]=" 
+      isMainFocus(0) ? 
+        !toLessWPDataAnalytics() ? 
+          isSeminarSelected(0) ? 'tableHead' : 'tableHeadToLess'
+          : 'tableHeadToLess'
+        : !toLessWPDataAnalytics() ?
+          'tableHead' : 'tableHeadToLess'">
         <div class="col-5">
           B. Bereich "Data Analytics"
         </div>
-        <div class="col-4">
+        <div class="col-3">
             Schwerpunkt: <mat-checkbox [checked]="isMainFocus(0)" (change)="setMainFocus(0)"></mat-checkbox>
         </div>
-        <div style="text-align: end" class="col-2">WP:</div>
-        <div class="col-1">{{ calculateWPModule(moduleDataAnalytics) }}</div>
+        <div class="col-2">LP: {{ calculateWPModule(moduleDataAnalytics) }}</div>
+        <div class="col-2">
+            Note: {{calculateMarkModule(moduleDataAnalytics)}}
+        </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -66,10 +75,9 @@
           LP
         </div>
         <div class="col-1">
-          Box
         </div>
         <div class="col-2">
-          Note
+          Note 
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleDataAnalytics">
@@ -92,15 +100,23 @@
   </div>
 
   <div class="container scientificComputing moduleTable">
-      <div class="row tableHead">
+      <div class="row" [ngClass]=" 
+      isMainFocus(1) ? 
+        !toLessWPScientificComputing() ? 
+          isSeminarSelected(1) ? 'tableHead' : 'tableHeadToLess'
+          : 'tableHeadToLess'
+        : !toLessWPScientificComputing() ?
+          'tableHead' : 'tableHeadToLess'">
         <div class="col-5">
           C. Bereich "Scientific Computing"
         </div>
-        <div class="col-4">
+        <div class="col-3">
             Schwerpunkt: <mat-checkbox [checked]="isMainFocus(1)" (change)="setMainFocus(1)"></mat-checkbox>
         </div>
-        <div style="text-align: end" class="col-2">WP:</div>
-        <div class="col-1">{{ calculateWPModule(moduleScientificComputing) }}</div>
+        <div class="col-2">LP: {{ calculateWPModule(moduleScientificComputing) }}</div>
+        <div class="col-2">
+            Note {{calculateMarkModule(moduleScientificComputing)}}
+          </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -109,11 +125,8 @@
         <div class="col-2">
           Semester
         </div>
-        <div class="col-1">
+        <div class="col-2">
           LP
-        </div>
-        <div class="col-1">
-          Box
         </div>
         <div class="col-2">
           Note
@@ -139,15 +152,23 @@
   </div>
 
   <div class="container computerEngineering moduleTable">
-      <div class="row tableHead">
+      <div class="row" [ngClass]=" 
+      isMainFocus(2) ? 
+        !toLessWPComputerEngineering() ? 
+          isSeminarSelected(2) ? 'tableHead' : 'tableHeadToLess'
+          : 'tableHeadToLess'
+        : !toLessWPComputerEngineering() ?
+          'tableHead' : 'tableHeadToLess'">
         <div class="col-5">
           D. Bereich "Computer Engineering"
         </div>
-        <div class="col-4">
+        <div class="col-3">
           Schwerpunkt: <mat-checkbox [checked]="isMainFocus(2)" (change)="setMainFocus(2)"></mat-checkbox>
         </div>
-        <div style="text-align: end" class="col-2">WP:</div>
-        <div class="col-1">{{ calculateWPModule(moduleComputerEngineering) }}</div>
+        <div class="col-2">LP: {{ calculateWPModule(moduleComputerEngineering) }}</div>
+        <div class="col-2">
+            Note {{calculateMarkModule(moduleComputerEngineering)}}
+          </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -156,14 +177,11 @@
         <div class="col-2">
           Semester
         </div>
-        <div class="col-1">
+        <div class="col-2">
           LP
         </div>
-        <div class="col-1">
-          Box
-        </div>
         <div class="col-2">
-          Note
+          Note 
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleComputerEngineering">
@@ -186,12 +204,14 @@
   </div>
 
   <div class="container interdisiplinary moduleTable">
-      <div class="row tableHead">
-        <div class="col-5">
+      <div class="row" [ngClass]="toLessWPInterdisiplinary() ? 'tableHeadToLess' : 'tableHead'">
+        <div class="col-8">
           E. Bereich "Fachübergreifende Qualifikationen"
         </div>
-        <div style="text-align: end" class="col-6">WP:</div>
-        <div class="col-1">{{ calculateWPModule(moduleInterdisiplinary) }}</div>
+        <div class="col-2">LP: {{ calculateWPModule(moduleInterdisiplinary) }}</div>
+        <div class="col-2">
+            Note {{calculateMarkModule(moduleInterdisiplinary)}}
+          </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -200,11 +220,8 @@
         <div class="col-2">
           Semester
         </div>
-        <div class="col-1">
+        <div class="col-2">
           LP
-        </div>
-        <div class="col-1">
-          Box
         </div>
         <div class="col-2">
           Note
@@ -230,12 +247,14 @@
   </div>
 
   <div class="container additional moduleTable">
-      <div class="row tableHead">
-        <div class="col-5">
+      <div class="row" [ngClass]="toLessWPAdditional() ? 'tableHeadToLess' : 'tableHead'">
+        <div class="col-8">
           F. Bereich "Zusätzliche Qualifikationen"
         </div>
-        <div style="text-align: end" class="col-6">WP:</div>
-        <div class="col-1">{{ calculateWPModule(moduleAdditional) }}</div>
+        <div class="col-2">LP: {{ calculateWPModule(moduleAdditional) }}</div>
+        <div class="col-2">
+            Note {{calculateMarkModule(moduleAdditional)}}
+        </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -244,14 +263,11 @@
         <div class="col-2">
           Semester
         </div>
-        <div class="col-1">
+        <div class="col-2">
           LP
         </div>
-        <div class="col-1">
-          Box
-        </div>
         <div class="col-2">
-          Note
+          Note 
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleAdditional">
@@ -273,13 +289,15 @@
       </div>
   </div>
 
-  <div class="container additional moduleTable">
+  <div class="container thesis moduleTable">
       <div class="row tableHead">
-        <div class="col-5">
+        <div class="col-8">
           G. Bereich "Masterarbeit mit Abschlusskolloquium"
         </div>
-        <div style="text-align: end" class="col-6">WP:</div>
-        <div class="col-1">{{calculateWPModule([moduleMasterThesis])}}</div>
+        <div class="col-2">LP: {{calculateWPModule([moduleMasterThesis])}}</div>
+        <div class="col-2">
+            Note {{calculateMarkModule([moduleMasterThesis])}}
+          </div>
       </div>
       <div class="row">
         <div class="col-6">
@@ -288,14 +306,11 @@
         <div class="col-2">
           Semester
         </div>
-        <div class="col-1">
+        <div class="col-2">
           LP
         </div>
-        <div class="col-1">
-          Box
-        </div>
         <div class="col-2">
-          Note
+          Note 
         </div>
       </div>
       <div class="row">
@@ -318,10 +333,18 @@
 
   <div class="siteBottom">
     <div class="focus">
-        Schwerpunkt: 
+        Schwerpunkt: &nbsp;
+    </div>
+    <div class="focus">
         <p *ngIf="_mainFocus === 0">Data Analytics</p>
         <p *ngIf="_mainFocus === 1">Scientific Computing</p>
         <p *ngIf="_mainFocus === 2">Computer Engineering</p>
+    </div>
+    <div class="cpTotal">
+      Leistungspunkte: {{calculateWPAllModules()}}/120
+    </div>
+    <div class="markTotal">
+      Note: {{calculateMarkAllModules()}}
     </div>
   </div>
 

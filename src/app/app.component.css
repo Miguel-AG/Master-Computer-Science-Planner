@@ -38,7 +38,7 @@
 }
 
 .moduleTable {
-    max-width: 50%;
+    max-width: 66.667%;
     max-height: 50%;
     margin: auto;
     border: #becca8;
@@ -50,6 +50,14 @@
 
 .tableHead {
     background: #becca8;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    color: rgb(54, 54, 54);
+}
+
+.tableHeadToLess {
+    background: #d65f5f;
     width: 100%;
     height: 100%;
     font-weight: bold;
@@ -74,4 +82,14 @@
     padding-right: 0!important;
     margin-left: 0!important;
     margin-bottom: 2px;
+    align-items: center;
+    justify-content: center;
 }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #97ca31 !important;
+  }
+  
+::ng-deep .mat-ripple-element {
+    background: #97ca31 !important;
+  }
