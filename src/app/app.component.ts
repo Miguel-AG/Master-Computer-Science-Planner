@@ -22,7 +22,7 @@ enum MainFocus {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Master Informatik Planner';
+  title = 'Master Informatik Planer';
   moduleCoreTopics: ComputerScienceModules[];
   moduleDataAnalytics: ComputerScienceModules[];
   moduleScientificComputing: ComputerScienceModules[];
