@@ -45,8 +45,8 @@ export class AppComponent implements OnInit {
 
     this.moduleDataAnalytics = [
       new ComputerScienceModules("Einführung in Data Analytics", "WS", 9),
-      new ComputerScienceModules("Machine Learning 2", "SS", 6),
-      new ComputerScienceModules("Web Information Retrievel", "SS", 6),
+      new ComputerScienceModules("Deep Learning", "SS", 6),
+      new ComputerScienceModules("Information Retrievel", "SS", 6),
       new ComputerScienceModules("Weiterführung Stochastik", "", 9),
       new ComputerScienceModules("Spezial Topics in Data Analytics", "", 9),
       new ComputerScienceModules("Angewandte Statistik", "SS", 9),
@@ -79,6 +79,7 @@ export class AppComponent implements OnInit {
       new ComputerScienceModules("Entwurf digitaler Syseme in VHDL", "", 6),
       new ComputerScienceModules("Digital Media", "", 6),
       new ComputerScienceModules("Informationstechnik für elektrische Energiesysteme", "", 6),
+      new ComputerScienceModules("Blockchain Technology", "SS", 6),
       new ComputerScienceModules("Seminar Computer Engineering", "", 3),
     ];
 
