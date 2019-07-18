@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 class ComputerScienceModules {
   
   constructor(public _name?: string,
-    public semester?: "WS" | "SS" | "WS&SS" | "",
+    public prof?: string,
+    public semester?: "WS" | "SS" | "WS+SS" | "",
     public cp?: number,
     public isSelected: boolean = false,
     public mark: number = 0) {
@@ -37,72 +38,81 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.moduleCoreTopics = [
-      new ComputerScienceModules("Spezielle Kapitel der Praktischen Informatik", "", 9),
-      new ComputerScienceModules("Spezielle Kapitel der Theoretischen Informatik", "", 9),
-      new ComputerScienceModules("Spezielle Kapitel der Technischen Informatik", "", 9),
-      new ComputerScienceModules("Digitale Transformation", "WS", 6),
+      new ComputerScienceModules("Spezielle Kapitel der Praktischen Informatik", "-","WS+SS", 9),
+      new ComputerScienceModules("Spezielle Kapitel der Theoretischen Informatik", "-", "WS+SS", 9),
+      new ComputerScienceModules("Digitale Transformation", "Meisen", "WS", 6),
+      new ComputerScienceModules("Ausgewählte Kapitel der Praktischen Informatik", "-", "WS+SS", 6),
+      new ComputerScienceModules("Ausgewählte Kapitel der Theoretischen Informatik", "-", "WS+SS", 6),
+      new ComputerScienceModules("Ausgewählte Kapitel der Technischen Informatik", "-", "WS+SS", 6),
+      new ComputerScienceModules("Spezielle Kapitel zu Algorithmen un Datenstrukturen", "-", "WS+SS", 9)
+
     ];
 
     this.moduleDataAnalytics = [
-      new ComputerScienceModules("Einführung in Data Analytics", "WS", 9),
-      new ComputerScienceModules("Deep Learning", "SS", 6),
-      new ComputerScienceModules("Information Retrievel", "SS", 6),
-      new ComputerScienceModules("Weiterführung Stochastik", "", 9),
-      new ComputerScienceModules("Spezial Topics in Data Analytics", "", 9),
-      new ComputerScienceModules("Angewandte Statistik", "SS", 9),
-      new ComputerScienceModules("Wahrscheinlichkeitstheorie", "WS", 9),
-      new ComputerScienceModules("Big Data Technologien", "WS", 6),
-      new ComputerScienceModules("Seminar Data Analytics", "SS", 3)
+      new ComputerScienceModules("Introduction to Data Science", "", "WS", 9),
+      new ComputerScienceModules("Statistical Network Analysis", "", "", 6),
+      new ComputerScienceModules("Weiterführung Stochastik: Angewandte Statistik", "Gottschalk", "SS", 9),
+      new ComputerScienceModules("Spezielle Kapitel in Data Analytics", "-", "WS+SS", 9),
+      new ComputerScienceModules("Fortgeschrittene Kapitel der Statistik", "-", "WS+SS", 9),
+      new ComputerScienceModules("Wahrscheinlichkeitstheorie", "Rüdiger-Mastandrea", "WS", 9),
+      new ComputerScienceModules("Seminar Data Analytics", "-", "WS+SS", 3),
+      new ComputerScienceModules("Ausgewählte Kapitel in Data Analytics", "-", "WS+SS", 6),
+      new ComputerScienceModules("Machine Learning on Graphs", "", "", 6),
+      new ComputerScienceModules("Deep Learning", "Meisen", "SS", 6),
+      new ComputerScienceModules("Information Retrieval", "Gipp", "SS", 6)
     ];
 
     this.moduleScientificComputing = [
-      new ComputerScienceModules("Parallel Algorithms", "SS", 9),
-      new ComputerScienceModules("Discrete Methods for Numerical Computing", "", 9),
-      new ComputerScienceModules("Verifikationsnumerik", "WS&SS", 9),
-      new ComputerScienceModules("Special Topics in Scientific Computation", "", 9),
-      new ComputerScienceModules("Special Topics in Numerical Analysis and Algorithms", "", 9),
-      new ComputerScienceModules("Selected Topics in Numerical Analysis and Algorithms", "", 9),
-      new ComputerScienceModules("Numerical Analysis ans Simulation 1", "WS", 9),
-      new ComputerScienceModules("Numerical Analysis ans Simulation 2 (PDE)", "SS", 9),
-      new ComputerScienceModules("Numerical Methods 2", "", 6),
-      new ComputerScienceModules("Seminar Scientific Computing", "", 3),
+      new ComputerScienceModules("Parallel Algorithms", "Lang", "SS", 9),
+      new ComputerScienceModules("Discrete Methods for Numerical Computing", "", "", 9),
+      new ComputerScienceModules("Verifikationsnumerik", "Hofschuster", "WS+SS", 9),
+      new ComputerScienceModules("Special Topics in Scientific Computing", "-", "WS+SS", 9),
+      new ComputerScienceModules("Special Topics in Numerical Analysis and Algorithms", "-", "WS+SS", 9),
+      new ComputerScienceModules("Selected Topics in Numerical Analysis and Algorithms", "-", "WS+SS", 6),
+      new ComputerScienceModules("Numerical Analysis and Simulation 1", "", "WS", 9),
+      new ComputerScienceModules("Numerical Analysis and Simulation 2", "", "SS", 9),
+      new ComputerScienceModules("Numerical Linear Algebra", "", "WS", 6),
+      new ComputerScienceModules("Seminar Scientific Computing", "-", "WS+SS", 3),
+      new ComputerScienceModules("Selected Topics in Scientific Computing", "-", "WS+SS", 6)
     ];
 
     this.moduleComputerEngineering = [
-      new ComputerScienceModules("Digitalisierung und informationstechnologische Netzwerke", "SS", 6),
-      new ComputerScienceModules("IT-Security in Informations- und Kommunikationstechnik", "", 6),
-      new ComputerScienceModules("Embedded Security", "", 6),
-      new ComputerScienceModules("Multimodale Mensch-Maschine-Systeme", "", 6),
-      new ComputerScienceModules("Informationsverarbeitung", "", 6),
-      new ComputerScienceModules("System- und Softwareentwicklung", "WS", 6),
-      new ComputerScienceModules("Numerische Methoden des Computational Engineering", "", 6),
-      new ComputerScienceModules("Entwurf digitaler Syseme in VHDL", "", 6),
-      new ComputerScienceModules("Digital Media", "", 6),
-      new ComputerScienceModules("Informationstechnik für elektrische Energiesysteme", "", 6),
-      new ComputerScienceModules("Blockchain Technology", "SS", 6),
-      new ComputerScienceModules("Seminar Computer Engineering", "", 3),
+      new ComputerScienceModules("Digitalisierung und informationstechnische Netzwerke", "Meisen", "SS", 6),
+      new ComputerScienceModules("Kommunikationssicherheit für moderne Anwendungen", "", "", 6),
+      new ComputerScienceModules("Theoretische Grundlagen der Angewandten Kryptographie", "", "", 6),
+      new ComputerScienceModules("Multimodale Mensch-Maschine-Systeme", "Möller", "WS", 6),
+      new ComputerScienceModules("System- und Softwareentwicklung", "Tutsch", "WS", 6),
+      new ComputerScienceModules("Informationsverarbeitung", "Kummert", "WS", 6),
+      new ComputerScienceModules("Numerische Methoden des Computational Engineering", "Clemens", "SS", 6),
+      new ComputerScienceModules("Entwurf digitaler Systeme in VHDL", "Tutsch", "SS", 6),
+      new ComputerScienceModules("Digital Media", "", "", 6),
+      new ComputerScienceModules("Informationstechnik für elektrische Energiesysteme", "Zdrallek", "", 6),
+      new ComputerScienceModules("Seminar Computer Engineering", "-", "WS+SS", 3),
+      new ComputerScienceModules("Ausgewählte Kapitel in Data Analytics", "-", "WS+SS", 6),
+      new ComputerScienceModules("Blockchain - Technology and Applications", "Gipp", "SS", 6)
     ];
 
     this.moduleInterdisiplinary = [
-      new ComputerScienceModules("Computational Finance 1", "WS", 9),
-      new ComputerScienceModules("Computational Finance 2", "SS", 9),
-      new ComputerScienceModules("Ausgewählte Kapitel der Wirtschaftsmathematik", "", 9),
-      new ComputerScienceModules("Angewandte Statistik", "SS", 9),
-      new ComputerScienceModules("Integrierte Schaltung in der Hochfrequenztechnik", "SS", 6),
-      new ComputerScienceModules("Methodischer Entwurf elektronischer Systeme", "", 6),
-      new ComputerScienceModules("Komponenten für Mobilfunksysteme", "SS", 6),
-      new ComputerScienceModules("Regenerative Energiequellen", "SS", 6),
-      new ComputerScienceModules("Optimierungsmethoden in der Reglungstechnik", "", 6),
-      new ComputerScienceModules("Einführung in MATLAB/Simulink für elektrische Nachrichtentechnik", "SS", 3),
+      new ComputerScienceModules("Computational Finance 1", "", "SS", 9),
+      new ComputerScienceModules("Computational Finance 2", "", "WS", 9),
+      new ComputerScienceModules("Spezielle Kapitel der Wirtschaftsmathematik", "-", "WS+SS", 9),
+      new ComputerScienceModules("Ausgewählte Kapitel der Wirtschaftsmathematik", "-", "WS+SS", 6),
+      new ComputerScienceModules("Integrierte Hochfrequenzschaltungen in der Kommunikationstechnik", "Pfeiffer", "SS", 6),
+      new ComputerScienceModules("Theoretische Nachrichtentechnik", "Kummert", "WS", 7),
+      new ComputerScienceModules("Methodischer Entwurf elektronischer Systeme", "Butzmann", "WS", 6),
+      new ComputerScienceModules("Komponenten für Mobilfunksysteme", "Brückmann", "SS", 6),
+      new ComputerScienceModules("Regenerative Energiequellen", "Zdrallek", "SS", 6),
+      new ComputerScienceModules("Optimierungsmethoden der Regelungstechnik", "Tibken", "WS", 6),
+      new ComputerScienceModules("Einführung in MATLAB/Simulink für elektrische Nachrichtentechnik", "Schmülling", "SS", 3)
     ];
 
     this.moduleAdditional = [
-      new ComputerScienceModules("Fremdsprachen", "WS&SS", 6),
-      new ComputerScienceModules("Grundzüge des Gründungsmanagements 1 & 2 + Seminar(SS)", "WS&SS", 12),
-      new ComputerScienceModules("Vermittlung und Unterricht", "", 6),
+      new ComputerScienceModules("Fremdsprachen", "-", "WS+SS", 6),
+      new ComputerScienceModules("Grundzüge des Gründungsmanagements 1 & 2 + Seminar(SS)", "Kuhn", "WS+SS", 12),
+      new ComputerScienceModules("Vermittlung und Unterricht", "-", "WS+SS", 6),
     ];
 
-    this.moduleMasterThesis = new ComputerScienceModules("Masterarbeit mit Abschlusskolloquium", "WS&SS", 30);
+    this.moduleMasterThesis = new ComputerScienceModules("Masterarbeit mit Abschlusskolloquium", "-", "WS+SS", 30);
 
   }
 

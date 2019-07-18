@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="siteTop">{{title}}</div>
+  <div style="font-weight:bold" class="siteTop">{{title}}</div>
   <div class="container coreModules moduleTable">
       <div class="row tableHead">
         <div class="col-8">
@@ -10,11 +10,14 @@
             Note: {{calculateMarkModule(moduleCoreTopics)}}
         </div>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row headerrow">
+        <div class="col-5">
           Modulname
         </div>
         <div class="col-2">
+          Zuständig
+        </div>
+        <div class="col-1">
           Semester
         </div>
         <div class="col-1">
@@ -27,10 +30,13 @@
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleCoreTopics">
-          <div class="col-6">
+          <div class="col-5">
             {{m._name}}
           </div>
           <div class="col-2">
+            {{m.prof}}
+          </div>
+          <div class="col-1">
             {{m.semester}}
           </div>
           <div class="col-1">
@@ -64,11 +70,14 @@
             Note: {{calculateMarkModule(moduleDataAnalytics)}}
         </div>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row headerrow">
+        <div class="col-5">
           Modulname
         </div>
         <div class="col-2">
+          Zuständig
+        </div>
+        <div class="col-1">
           Semester
         </div>
         <div class="col-1">
@@ -81,10 +90,13 @@
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleDataAnalytics">
-          <div class="col-6">
+          <div class="col-5">
             {{m._name}}
           </div>
           <div class="col-2">
+            {{m.prof}}
+          </div>
+          <div class="col-1">
             {{m.semester}}
           </div>
           <div class="col-1">
@@ -118,11 +130,14 @@
             Note {{calculateMarkModule(moduleScientificComputing)}}
           </div>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row headerrow">
+        <div class="col-5">
           Modulname
         </div>
         <div class="col-2">
+          Zuständig
+        </div>
+        <div class="col-1">
           Semester
         </div>
         <div class="col-2">
@@ -133,10 +148,13 @@
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleScientificComputing">
-          <div class="col-6">
+          <div class="col-5">
             {{m._name}}
           </div>
           <div class="col-2">
+            {{m.prof}}
+          </div>
+          <div class="col-1">
             {{m.semester}}
           </div>
           <div class="col-1">
@@ -170,11 +188,14 @@
             Note {{calculateMarkModule(moduleComputerEngineering)}}
           </div>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row headerrow">
+        <div class="col-5">
           Modulname
         </div>
         <div class="col-2">
+          Zuständig
+        </div>
+        <div class="col-1">
           Semester
         </div>
         <div class="col-2">
@@ -185,10 +206,13 @@
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleComputerEngineering">
-          <div class="col-6">
+          <div class="col-5">
             {{m._name}}
           </div>
           <div class="col-2">
+            {{m.prof}}
+          </div>
+          <div class="col-1">
             {{m.semester}}
           </div>
           <div class="col-1">
@@ -213,11 +237,14 @@
             Note {{calculateMarkModule(moduleInterdisiplinary)}}
           </div>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row headerrow">
+        <div class="col-5">
           Modulname
         </div>
         <div class="col-2">
+          Zuständig
+        </div>
+        <div class="col-1">
           Semester
         </div>
         <div class="col-2">
@@ -228,10 +255,13 @@
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleInterdisiplinary">
-          <div class="col-6">
+          <div class="col-5">
             {{m._name}}
           </div>
           <div class="col-2">
+            {{m.prof}}
+          </div>
+          <div class="col-1">
             {{m.semester}}
           </div>
           <div class="col-1">
@@ -256,11 +286,14 @@
             Note {{calculateMarkModule(moduleAdditional)}}
         </div>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row headerrow">
+        <div class="col-5">
           Modulname
         </div>
         <div class="col-2">
+          Zuständig
+        </div>
+        <div class="col-1">
           Semester
         </div>
         <div class="col-2">
@@ -271,10 +304,13 @@
         </div>
       </div>
       <div class="row" *ngFor="let m of moduleAdditional">
-          <div class="col-6">
+          <div class="col-5">
             {{m._name}}
           </div>
           <div class="col-2">
+            {{m.prof}}
+          </div>
+          <div class="col-1">
             {{m.semester}}
           </div>
           <div class="col-1">
@@ -299,11 +335,14 @@
             Note {{calculateMarkModule([moduleMasterThesis])}}
           </div>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row headerrow">
+        <div class="col-5">
           Modulname
         </div>
         <div class="col-2">
+          Zuständig
+        </div>
+        <div class="col-1">
           Semester
         </div>
         <div class="col-2">
@@ -314,10 +353,14 @@
         </div>
       </div>
       <div class="row">
-          <div class="col-6">
+          <div class="col-5">
             {{moduleMasterThesis._name}}
           </div>
           <div class="col-2">
+            {{moduleMasterThesis.prof}}
+          </div>
+          <div class="col-1">
+            {{moduleMasterThesis.semester}}
           </div>
           <div class="col-1">
             {{moduleMasterThesis.cp}}
@@ -332,20 +375,23 @@
   </div>
 
   <div class="siteBottom">
-    <div class="focus">
-        Schwerpunkt: &nbsp;
-    </div>
-    <div class="focus">
+    <ul>
+      <li>
+        <p>Schwerpunkt:&nbsp;</p>
+      </li>
+      <li>
+        <p *ngIf="_mainFocus == null">-</p>
         <p *ngIf="_mainFocus === 0">Data Analytics</p>
         <p *ngIf="_mainFocus === 1">Scientific Computing</p>
-        <p *ngIf="_mainFocus === 2">Computer Engineering</p>
-    </div>
-    <div class="cpTotal">
-      Leistungspunkte: {{calculateWPAllModules()}}/120
-    </div>
-    <div class="markTotal">
-      Note: {{calculateMarkAllModules()}}
-    </div>
+        <p *ngIf="_mainFocus === 2">Computer Engineering</p></li>
+      <li>
+        <p> &nbsp;|&nbsp;
+        Leistungspunkte: {{calculateWPAllModules()}}/120
+        &nbsp;|&nbsp;
+        Note: {{calculateMarkAllModules()}}
+        </p>
+      </li>
+    </ul>
   </div>
 
 </div>

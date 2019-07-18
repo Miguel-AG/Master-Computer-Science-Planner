@@ -30,11 +30,25 @@
     border-width: 5px;
     bottom: 0%;
     width: 100%;
-    height: 7%;
+    height: 6%;
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    align-items: center;
+}
 
+.siteBottom ul {
+    margin: 0 auto;
+}
+
+.siteBottom ul li {
+    list-style: none;
+    float: left;
+}
+
+.siteBottom p {
+    margin: 0 auto;
 }
 
 .moduleTable {
@@ -84,6 +98,11 @@
     margin-bottom: 2px;
     align-items: center;
     justify-content: center;
+}
+
+.headerrow {
+    font-weight:bold;
+    color:#404040;
 }
 
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
